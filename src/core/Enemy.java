@@ -52,6 +52,8 @@ public class Enemy extends GameObject {
         try {
             fire = SoundManager.getClip("zap.wav");
         } catch (Exception e) {
+        	System.err.println(e);
+        	e.printStackTrace();
         }
     }
 
@@ -74,7 +76,7 @@ public class Enemy extends GameObject {
     public void update() {
         state++;
         if(state > 1000) state = 0;
-        
+
         Vector2D dir = new Vector2D(player.pos.x - pos.x, player.pos.y - pos.y);
         dir = dir.direction();
 
@@ -170,5 +172,8 @@ public class Enemy extends GameObject {
     }
 
     @Override
-    public String toString() {return "enemy";}
+    public String toString() {
+    	return "enemy";
+    }
 }
+

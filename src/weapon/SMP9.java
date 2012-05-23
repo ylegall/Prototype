@@ -20,11 +20,14 @@ public class SMP9 extends Weapon
         speed = 50;
         spread = 10;
         fireDelay = 0;
-        try
-        {
+
+        try {
             shot = SoundManager.getClip("pulse.wav");
         }
-        catch (Exception e) {System.err.println(e.getMessage());}
+        catch (Exception e) {
+        	System.err.println(e.getMessage());
+        	e.printStackTrace();
+        }
 
         rounds = ammo = 1;
     }

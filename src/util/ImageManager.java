@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import java.io.InputStream;
 
 /**
  *  @author Yann Le Gall
@@ -25,8 +26,15 @@ public class ImageManager
 
     public static ImageIcon getImage(String file)
     {
-        URL url = ImageManager.class.getResource("/resources/images/"+file);
-        return new ImageIcon(url);
+        //URL url = ImageManager.class.getResource("/resources/images/"+file);
+		//return new ImageIcon(url);
+		try {
+			InputStream is = ImageManager.class.getResourceAsStream("/resources/images/"+file);
+			return new ImageIcon(ImageIO.read(is));
+		} catch (Exception e) {
+			System.err.println("HERE: " + e);
+			return null;
+		}
     }
 
     public static BufferedImage getBufferedImage(String file)
@@ -40,5 +48,5 @@ public class ImageManager
         catch (java.io.IOException ioe) {}
         return bi;
     }
-    
+
 }
