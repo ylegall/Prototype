@@ -32,7 +32,7 @@ public class ImageManager
 			InputStream is = ImageManager.class.getResourceAsStream("/resources/images/"+file);
 			return new ImageIcon(ImageIO.read(is));
 		} catch (Exception e) {
-			System.err.println("HERE: " + e);
+			System.err.println("error loading image '" + file + "': " + e);
 			return null;
 		}
     }
